@@ -3,6 +3,7 @@ import App from './App';
 import PostDetail from './PostDetail'; 
 import NotFoundPage from './NotFoundPage';
 import Parent from './Lifting';
+import UserList from './Effect';
 
 function About() {
   return (
@@ -18,17 +19,14 @@ function Layout() {
     <div>
       <header style={{ background: '#eee', padding: '10px' }}>
         <strong>공통 헤더</strong>
-        {/* 2. 메뉴 이동을 위한 링크 추가 */}
         <nav style={{ marginTop: '5px' }}>
           <Link to="/" style={{ marginRight: '10px' }}>홈(Home)</Link>
           <Link to="/about">소개(About)</Link>
         </nav>
       </header>
-      
       <main>
         <Outlet />
       </main>
-      
       <footer style={{ background: '#eee', padding: '10px', marginTop: '20px' }}>공통 푸터</footer>
     </div>
   );
@@ -43,6 +41,7 @@ export default function Router() {
           <Route path="/about" element={<About />} />
           <Route path="/post/:id" element={<PostDetail />} />
           <Route path="/lifting" element={<Parent />} />
+          <Route path="/effect" element={<UserList />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
